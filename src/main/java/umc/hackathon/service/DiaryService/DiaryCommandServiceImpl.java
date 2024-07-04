@@ -42,4 +42,12 @@ public class DiaryCommandServiceImpl implements DiaryCommandService{
         return updateDiary;
     }
 
+    @Override
+    public void deleteDiary(Long userId, Long diaryId) {
+        User getUser = userRepository.findById(userId).get();
+
+        Diary deleteDiary = diaryRepository.findById(diaryId).get();
+        diaryRepository.delete(deleteDiary);
+    }
+
 }

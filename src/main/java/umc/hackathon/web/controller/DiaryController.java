@@ -58,5 +58,20 @@ public class DiaryController {
         );
     }
 
+    // 일기 삭제
+    @DeleteMapping("/{diaryId}")
+    @Operation(
+            summary = "일기 삭제 API"
+            , description = "일기를 삭제합니다. Path variable로 삭제할 diaryId를 입력하세요"
+    )
+    public ApiResponse<?> deleteDiary(
+            @RequestParam Long userId,
+            @PathVariable Long diaryId) {
+
+        diaryCommandService.deleteDiary(userId, diaryId);
+        return ApiResponse.onSuccess(null
+        );
+    }
+
 
 }
