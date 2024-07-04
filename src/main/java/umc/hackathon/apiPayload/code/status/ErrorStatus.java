@@ -24,8 +24,9 @@ public enum ErrorStatus implements BaseCode {
     // 반려식물 관련
     MY_PLANT_NOT_FOUND(HttpStatus.NOT_FOUND, "NOT FOUND", "존재하지 않는 반려식물입니다."),
 
-    POINT_RANGE_EXCEEDED(HttpStatus.BAD_REQUEST, "BAD REQUEST", "점수 범위를 초과했습니다.");
+    POINT_RANGE_EXCEEDED(HttpStatus.BAD_REQUEST, "BAD REQUEST", "점수 범위를 초과했습니다."),
 
+    MY_PLANT_NOT_DELETE(HttpStatus.INTERNAL_SERVER_ERROR, "BAD REQUEST", "반려식물 삭제가 안 됩니다.");
 
 
 

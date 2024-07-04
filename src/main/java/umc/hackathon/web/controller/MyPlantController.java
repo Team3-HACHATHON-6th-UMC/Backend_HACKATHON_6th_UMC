@@ -39,15 +39,16 @@ public class MyPlantController {
 
 
 
-    /*
     // 반려식물 삭제
     @DeleteMapping("/{myPlantId}")
     @Operation(summary = "반려식물 삭제 API", description = "내가 추가한 반려식물을 삭제합니다.")
     public ApiResponse<?> deleteMyplant(@PathVariable Long myPlantId) {
+        myPlantService.deleteMyPlant(myPlantId);
+        String message = "리뷰가 삭제되었습니다.";
+        return new ApiResponse<>(true, "COMMON200", message, myPlantId);
 
     }
 
-     */
 
 
 

@@ -16,7 +16,8 @@ import umc.hackathon.domain.common.BaseEntity;
 @AllArgsConstructor
 public class MyPlantImage extends BaseEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String imageUrl;

@@ -1,11 +1,8 @@
-package umc.hackathon.service.MyplantService;
+package umc.hackathon.service.MyPlantService;
 
-import umc.hackathon.web.dto.Myplant.MyplantRequestDTO;
-import umc.hackathon.web.dto.Myplant.MyplantResponseDTO;
+import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
 
-import java.util.List;
-
-public interface MyplantService {
+public interface MyPlantService {
 
     /*
     // 반려식물 생성
@@ -14,5 +11,8 @@ public interface MyplantService {
      */
 
     // 반려식물 정보조회(== 메인화면)
-    MyplantResponseDTO.MyplantDTO getMyPlant(Long myPlantId);
+    MyPlantResponseDTO.MyPlantDTO getMyPlant(Long myPlantId);
+
+    // 반려식물 삭제
+    void deleteMyPlant(Long myPlantId);
 }
