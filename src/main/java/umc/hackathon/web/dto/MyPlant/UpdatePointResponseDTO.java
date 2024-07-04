@@ -1,4 +1,4 @@
-package umc.hackathon.web.dto.MyPlant.Point;
+package umc.hackathon.web.dto.MyPlant;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -8,7 +8,7 @@ import umc.hackathon.apiPayload.exception.handler.TempHandler;
 import umc.hackathon.converter.PointConverter;
 import umc.hackathon.domain.entity.MyPlant;
 import umc.hackathon.repository.MyPlantRepository;
-import umc.hackathon.web.dto.MyPlant.Point.UpdatePointResponseDTO;
+import umc.hackathon.web.dto.MyPlant.UpdatePointResponseDTO;
 
 @Service
 @RequiredArgsConstructor
