@@ -23,8 +23,9 @@ import umc.hackathon.web.dto.User.UserResponseDTO;
 public class UserController {
 
     private final UserCommandService userCommandService;
-    //private final UserQueryService userQueryService;
+    private final UserQueryService userQueryService;
 
+    // 회원가입
     @Operation(summary = "유저 생성", description = "User를 생성합니다."
     )
     @PostMapping("/sign_up")
@@ -35,6 +36,21 @@ public class UserController {
         return ApiResponse.onSuccess(UserConverter.toCreateResultDTO(newUser)
         );
     }
+
+    // 로그인
+    @Operation(summary = "로그인", description =
+            "로그인"
+    )
+    @PostMapping("/sign_in")
+    public ApiResponse<UserResponseDTO.SignInResultDTO> signIn(
+            @RequestBody UserRequestDTO.SignInRequestDTO request
+    ) {
+        User findUser = userQueryService.signIn(request);
+        return ApiResponse.onSuccess(UserConverter.toSignInResultDTO(findUser)
+        );
+    }
+
+
 
 
 
