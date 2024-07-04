@@ -1,6 +1,7 @@
 package umc.hackathon.web.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -15,6 +16,9 @@ import umc.hackathon.service.DiaryService.DiaryQueryServiceImpl;
 import umc.hackathon.service.UserService.UserQueryService;
 import umc.hackathon.web.dto.Diary.DiaryRequestDTO;
 import umc.hackathon.web.dto.Diary.DiaryResponseDTO;
+
+import java.util.List;
+
 // temp 주석
 @RestController
 @RequiredArgsConstructor
@@ -25,7 +29,7 @@ import umc.hackathon.web.dto.Diary.DiaryResponseDTO;
 public class DiaryController {
 
     private final DiaryCommandService diaryCommandService;
-    //private final DiaryQueryService diaryQueryService;
+    private final DiaryQueryService diaryQueryService;
     private final UserQueryService userQueryService;
 
     // 일기 생성
@@ -72,6 +76,23 @@ public class DiaryController {
         return ApiResponse.onSuccess(null
         );
     }
+
+
+    // 일기 조회
+    @GetMapping("/diaryList/{userId}")
+    @Operation(
+            summary = "유저가 작성한 일기 조회 API"
+            , description = "유저가 작성한 일기를 조회할 수 있습니다."
+    )
+    public ApiResponse<DiaryResponseDTO.UserDiaryResultListDTO> findUserDiary(
+            @PathVariable Long userId
+    ) {
+        List<Diary> userDiaryList = diaryQueryService.getUserDiary(userId);
+        return ApiResponse.onSuccess(
+                DiaryConverter.toUserDiaryResultListDTO(userDiaryList)
+        );
+    }
+
 
 
 }

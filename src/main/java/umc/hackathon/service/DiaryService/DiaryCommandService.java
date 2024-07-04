@@ -10,4 +10,5 @@ public interface DiaryCommandService {
     Diary updateDiary(Long userId, Long diaryId, DiaryRequestDTO.UpdateDiaryDTO request);
 
     void deleteDiary(Long userId, Long diaryId);
+
 }
