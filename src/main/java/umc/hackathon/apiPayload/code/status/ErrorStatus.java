@@ -19,7 +19,10 @@ public enum ErrorStatus implements BaseCode {
     LOGIN_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "LOGIN FAIL", "아이디 또는 비밀번호를 확인하세요"),
 
     // 세션 에러
-    SESSION_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "유효하지 않은 세션입니다.");
+    SESSION_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "유효하지 않은 세션입니다."),
+
+    // 반려동물 조회 에러
+    PLANT_NOT_EXIST(HttpStatus.BAD_REQUEST,"PLANT400","myPlantId와 일치하는 식물이 존재하지 않습니다.");
 
 
 
