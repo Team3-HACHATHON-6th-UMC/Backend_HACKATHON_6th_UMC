@@ -7,7 +7,7 @@ public interface DiaryCommandService {
 
     Diary createDiary(Long userId, DiaryRequestDTO.CreateDiaryRequestDTO request);
 
-    //Diary updateDiary(Long userId, Long diaryId, DiaryRequestDTO.UpdateDiaryDTO request);
+    Diary updateDiary(Long userId, Long diaryId, DiaryRequestDTO.UpdateDiaryDTO request);
 
     //void deleteDiary(Long userId, Long diaryId);
 }

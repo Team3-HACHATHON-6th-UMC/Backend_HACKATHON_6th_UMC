@@ -30,4 +30,16 @@ public class DiaryCommandServiceImpl implements DiaryCommandService{
 
         return savedDiary;
     }
+
+    @Override
+    public Diary updateDiary(Long userId, Long diaryId, DiaryRequestDTO.UpdateDiaryDTO request) {
+
+        User getUser = userRepository.findById(userId).get();
+
+        Diary updateDiary = diaryRepository.findById(diaryId).get();
+        updateDiary.update(request);
+
+        return updateDiary;
+    }
+
 }
