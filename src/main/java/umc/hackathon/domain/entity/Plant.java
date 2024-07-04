@@ -4,9 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
 import umc.hackathon.domain.common.BaseEntity;
 
 @Entity
+@Getter
 public class Plant extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +18,7 @@ public class Plant extends BaseEntity {
 
     private Integer cycle;
 
-    private Integer sumLevel;
+    private Integer sunLevel;
 
     private String description;
 }
