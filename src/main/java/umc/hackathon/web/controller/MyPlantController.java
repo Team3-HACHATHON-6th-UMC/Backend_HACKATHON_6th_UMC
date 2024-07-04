@@ -5,25 +5,24 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import umc.hackathon.apiPayload.ApiResponse;
 import umc.hackathon.service.MyPlantService.MyPlantService;
-import umc.hackathon.web.dto.MyPlant.MyPlantRequestDTO;
+import umc.hackathon.web.dto.MyPlant.CreateMyPlantRequestDTO;
 import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/myplants")
+@RequestMapping("/my-plants")
 public class MyPlantController {
 
     private final MyPlantService myPlantService;
 
-    /*
     // 반려식물 생성
-    @PostMapping()
+    @PostMapping
     @Operation(summary = "반려식물 생성 API", description = "반려식물 이름과 사진을 넣어주세요.")
-    public ApiResponse<MyplantRequestDTO.AddMyplantDTO> createMyplant(){
-        return ApiResponse.onSuccess(myplantService.addMyPlant());
+    public ApiResponse<?> createMyPlant(@RequestParam Long plantId, @RequestParam Long userId, @RequestBody CreateMyPlantRequestDTO createMyPlantRequestDTO){
+        myPlantService.createMyPlant(plantId, userId, createMyPlantRequestDTO);
+        return ApiResponse.onSuccess("반려식물 생성 완료");
 
     }
-    */
 
 
     // 반려식물 상세정보 조회(= 메인화면) (반려식물 1개만 할거라 반려식물 리스트 조회 안 하기로 함)

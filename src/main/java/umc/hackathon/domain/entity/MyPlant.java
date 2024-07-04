@@ -6,6 +6,8 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import umc.hackathon.domain.common.BaseEntity;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Builder
