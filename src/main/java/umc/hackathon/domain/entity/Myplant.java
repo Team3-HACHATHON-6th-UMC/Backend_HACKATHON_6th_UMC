@@ -33,4 +33,11 @@ public class Myplant extends BaseEntity {
     @JoinColumn(name = "plant_id")
     private Plant plant;
 
+    public void updatePoint() {
+        this.total += 10;
+    }
+
+    public void updateStatus(Integer status) {
+        this.status = status;
+    }
 }
