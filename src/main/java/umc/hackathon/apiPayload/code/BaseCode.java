@@ -2,6 +2,8 @@ package umc.hackathon.apiPayload.code;
 
 public interface BaseCode {
 
-    ReasonDTO getReason();
+    public ReasonDTO getReason();
+
+    public ReasonDTO getReasonHttpStatus();
 
 }
