@@ -15,7 +15,7 @@ import umc.hackathon.service.DiaryService.DiaryQueryServiceImpl;
 import umc.hackathon.service.UserService.UserQueryService;
 import umc.hackathon.web.dto.Diary.DiaryRequestDTO;
 import umc.hackathon.web.dto.Diary.DiaryResponseDTO;
-
+// temp 주석
 @RestController
 @RequiredArgsConstructor
 @Validated
