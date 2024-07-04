@@ -6,14 +6,14 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import umc.hackathon.domain.common.BaseEntity;
 
-@Entity
+
 @Getter
 @Builder
 @DynamicUpdate
 @DynamicInsert
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class MyplantImage extends BaseEntity {
+public class MyPlantImage extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +22,5 @@ public class MyplantImage extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "myPlant_id")
-    private Myplant myplant;
+    private MyPlant myPlant;
 }

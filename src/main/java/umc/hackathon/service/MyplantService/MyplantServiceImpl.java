@@ -5,8 +5,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import umc.hackathon.apiPayload.code.status.ErrorStatus;
 import umc.hackathon.apiPayload.exception.GeneralException;
-import umc.hackathon.domain.entity.Myplant;
-import umc.hackathon.domain.entity.MyplantImage;
+import umc.hackathon.domain.entity.MyPlant;
+import umc.hackathon.domain.entity.MyPlantImage;
+import umc.hackathon.domain.entity.MyPlant;
+import umc.hackathon.domain.entity.MyPlantImage;
 import umc.hackathon.repository.MyPlantImageRepository;
 import umc.hackathon.repository.MyPlantRepository;
 import umc.hackathon.web.dto.Myplant.MyplantRequestDTO;
@@ -40,10 +42,10 @@ public class MyplantServiceImpl implements MyplantService{
     @Override
     public MyplantResponseDTO.MyplantDTO getMyPlant(Long myPlantId) {
         //1. DB에서 myPlantId로 반려식물조회
-        Myplant myPlant = myPlantRepository.findById(myPlantId)
-                .orElseThrow(() -> new GeneralException(ErrorStatus.PLANT_NOT_EXIST));
+        MyPlant myPlant = myPlantRepository.findById(myPlantId)
+                .orElseThrow(() -> new GeneralException(ErrorStatus.MY_PLANT_NOT_FOUND));
 
-        MyplantImage myPlantImage = myPlantImageRepository.findByMyplant_Id(myPlantId);
+        MyPlantImage myPlantImage = myPlantImageRepository.findByMyPlant_Id(myPlantId);
 
 
         // DTO로 변환하여 반환

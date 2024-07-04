@@ -14,15 +14,17 @@ public enum ErrorStatus implements BaseCode {
     INTERNER_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Internal Server Error", "서버 에러"),
 
     // 로그인 관련
-    JOIN_ALREADY_EXISTS(HttpStatus.CONFLICT, "user already exists", "이미 존재하는 아이디입니다."),
+    USER_ALREADY_EXISTS(HttpStatus.CONFLICT, "user already exists", "이미 존재하는 아이디입니다."),
 
     LOGIN_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "LOGIN FAIL", "아이디 또는 비밀번호를 확인하세요"),
 
     // 세션 에러
     SESSION_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "유효하지 않은 세션입니다."),
 
-    // 반려동물 조회 에러
-    PLANT_NOT_EXIST(HttpStatus.BAD_REQUEST,"PLANT400","myPlantId와 일치하는 식물이 존재하지 않습니다.");
+    // 반려식물 관련
+    MY_PLANT_NOT_FOUND(HttpStatus.NOT_FOUND, "NOT FOUND", "존재하지 않는 반려식물입니다."),
+
+    POINT_RANGE_EXCEEDED(HttpStatus.BAD_REQUEST, "BAD REQUEST", "점수 범위를 초과했습니다.");
 
 
 
@@ -40,6 +42,17 @@ public enum ErrorStatus implements BaseCode {
                 .code(code)
                 .message(message)
                 .build();
+    }
+
+    @Override
+    public ReasonDTO getReasonHttpStatus() {
+        return ReasonDTO.builder()
+                .message(message)
+                .code(code)
+                .isSuccess(false)
+                .httpStatus(httpStatus)
+                .build()
+                ;
     }
 
 }
