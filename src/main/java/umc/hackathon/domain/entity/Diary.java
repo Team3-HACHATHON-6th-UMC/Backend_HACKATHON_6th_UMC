@@ -1,8 +1,6 @@
 package umc.hackathon.domain.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import umc.hackathon.domain.common.BaseEntity;
 
 public class Diary extends BaseEntity {
@@ -15,6 +13,9 @@ public class Diary extends BaseEntity {
 
     private String content;
 
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 }
