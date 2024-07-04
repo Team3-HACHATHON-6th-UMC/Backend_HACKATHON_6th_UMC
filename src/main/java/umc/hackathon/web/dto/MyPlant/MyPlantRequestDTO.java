@@ -1,6 +1,6 @@
 package umc.hackathon.web.dto.MyPlant;
 
-// 대문자..
+// temp save
 import lombok.*;
 public class MyPlantRequestDTO {
 
