@@ -19,6 +19,7 @@ public class SwaggerConfig {
                 .description("6th UMC HACKATHON Team3 API 명세서")
                 .version("1.0.0");
 
+
         String jwtSchemeName = "JWT TOKEN";
         // API 요청 헤더에 인증정보 포함
         SecurityRequirement securityRequirement = new SecurityRequirement().addList(jwtSchemeName);
