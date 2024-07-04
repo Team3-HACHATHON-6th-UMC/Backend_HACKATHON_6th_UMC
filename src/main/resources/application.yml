@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mysql://umc-6th-hackathon-db.c7aaoo2mc211.ap-northeast-2.rds.amazonaws.com:3306/UMC_6th_HACKATHON_Team3_DB
+    username: hackathonteam3
+    password: team3hackathon3333
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        hbm2ddl:
+          auto: update # update / create
+        default_batch_fetch_size: 1000
