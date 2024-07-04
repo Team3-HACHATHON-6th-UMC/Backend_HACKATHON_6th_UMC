@@ -1,7 +1,7 @@
 package umc.hackathon.web.dto.MyPlant;
 
 import lombok.*;
-// 주석
+
 public class MyPlantResponseDTO {
 
     @Builder
