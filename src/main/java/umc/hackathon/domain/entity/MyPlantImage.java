@@ -7,6 +7,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import umc.hackathon.domain.common.BaseEntity;
 
 
+@Entity
 @Getter
 @Builder
 @DynamicUpdate
