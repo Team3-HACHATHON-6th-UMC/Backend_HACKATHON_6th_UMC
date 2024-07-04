@@ -1,5 +1,6 @@
 package umc.hackathon.web.dto.Plant;
 
+
 import lombok.*;
 import umc.hackathon.domain.entity.Plant;
 

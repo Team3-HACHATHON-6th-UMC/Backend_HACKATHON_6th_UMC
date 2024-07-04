@@ -31,7 +31,7 @@ public class PlantService {
 
         for (Plant plant : plants) {
             PlantImage plantImage = plantImageRepository.findFirstByPlant_Id(plant.getId())
-                    .orElseThrow(() -> new TempHandler(ErrorStatus.PLANT_IMAGE_NOT_FOUND));
+                    .orElseThrow(() -> new TempHandler(ErrorStatus.MY_PLANT_NOT_FOUND));
 
             PlantListDTO plantListDTO = PlantListDTO.builder()
                     .id(plant.getId())
