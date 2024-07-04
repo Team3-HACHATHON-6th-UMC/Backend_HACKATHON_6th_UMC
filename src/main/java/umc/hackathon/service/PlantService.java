@@ -48,6 +48,19 @@ public class PlantService {
     @Transactional
     public PlantResponseDTO getPlantDetails(Long plantId) {
         Plant plant=plantRepository.findById(plantId).orElseThrow();
-        return PlantResponseDTO.of(plant);
+
+        PlantImage plantImage = plantImageRepository.findFirstByPlant_Id(plant.getId())
+                .orElseThrow(() -> new TempHandler(ErrorStatus.PLANT_IMAGE_NOT_FOUND));
+
+        PlantResponseDTO plantResponseDTO = PlantResponseDTO.builder()
+                .plantId(plant.getId())
+                .plantName(plant.getName())
+                .cycle(plant.getCycle())
+                .sunLevel(plant.getSunLevel())
+                .description(plant.getDescription())
+                .imageUrl(plantImage.getImageUrl())
+                .build();
+
+        return plantResponseDTO;
     }
 }
