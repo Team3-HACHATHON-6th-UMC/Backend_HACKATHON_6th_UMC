@@ -22,7 +22,7 @@ public class UserRequestDTO {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class signInRequestDTO {
+    public static class SignInRequestDTO {
         private String userName;
         private String password;
     }

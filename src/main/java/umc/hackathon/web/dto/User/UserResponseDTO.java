@@ -20,7 +20,9 @@ public class UserResponseDTO {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class signInResultDTO {
+    public static class SignInResultDTO {
         Long userId;
+        String userName;
+        String name;
     }
 }
