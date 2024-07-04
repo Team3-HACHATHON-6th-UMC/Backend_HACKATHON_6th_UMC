@@ -1,8 +1,8 @@
-package umc.hackathon.web.dto.Myplant;
+package umc.hackathon.web.dto.MyPlant;
 
 
 import lombok.*;
-public class MyplantRequestDTO {
+public class MyPlantRequestDTO {
 
     @Builder
     @Getter

@@ -1,8 +1,10 @@
 package umc.hackathon.service.MyPlantService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.hackathon.apiPayload.code.status.ErrorStatus;
 import umc.hackathon.apiPayload.exception.GeneralException;
 import umc.hackathon.domain.entity.MyPlant;
@@ -15,6 +17,9 @@ import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
 @RequiredArgsConstructor
 
 @Component
+
+@Transactional
+@Slf4j
 public class MyPlantServiceImpl implements umc.hackathon.service.MyPlantService.MyPlantService {
 
 
@@ -50,9 +55,16 @@ public class MyPlantServiceImpl implements umc.hackathon.service.MyPlantService.
 
         return myPlantDTO;
 
+    }
 
+    // 반려 식물 삭제
+    @Override
+    public void deleteMyPlant(Long myPlantId) {
+        MyPlant myPlant = myPlantRepository.findById(myPlantId)
+                .orElseThrow(() -> new GeneralException(ErrorStatus.MY_PLANT_NOT_DELETE));
 
-
+        myPlantRepository.delete(myPlant);
 
     }
+
 }
