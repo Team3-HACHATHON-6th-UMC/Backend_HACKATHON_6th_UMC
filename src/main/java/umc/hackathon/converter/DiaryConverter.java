@@ -14,6 +14,7 @@ public class DiaryConverter {
         return Diary.builder()
                 .title(request.getTitle())
                 .content(request.getContent())
+                .imageUrl(request.getImageUrl())
                 .build();
     }
 
@@ -22,6 +23,7 @@ public class DiaryConverter {
                 .diaryId(diary.getId())
                 .title(diary.getTitle())
                 .content(diary.getContent())
+                .imageUrl(diary.getImageUrl())
                 .createAt(diary.getCreatedAt())
                 .build();
     }

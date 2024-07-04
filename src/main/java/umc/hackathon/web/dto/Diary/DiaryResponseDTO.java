@@ -18,6 +18,7 @@ public class DiaryResponseDTO {
         Long diaryId;
         String title;
         String content;
+        String imageUrl;
         LocalDateTime createAt;
     }
 
@@ -49,6 +50,7 @@ public class DiaryResponseDTO {
     public static class UserDiaryResultDTO {
         Long diaryId;
         String content;
+        String imageUrl;
         LocalDateTime createdAt;
     }
 

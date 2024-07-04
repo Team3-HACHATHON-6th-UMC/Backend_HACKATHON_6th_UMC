@@ -24,6 +24,9 @@ public class Diary extends BaseEntity {
 
     private String content;
 
+    @Column(length = 2048)
+    private String imageUrl;
+
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
