@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import umc.hackathon.apiPayload.ApiResponse;
 import umc.hackathon.repository.PlantRepository;
 import umc.hackathon.service.PlantService;
+import umc.hackathon.web.dto.Plant.PlantListResponseDTO;
 import umc.hackathon.web.dto.Plant.PlantResponseDTO;
 
 @RestController
@@ -16,14 +17,12 @@ import umc.hackathon.web.dto.Plant.PlantResponseDTO;
 public class PlantController {
 
     private final PlantService plantService;
-    private final PlantRepository plantRepository;
 
     //식물 전체 조회
-//    @GetMapping("/plants")
-//    public ApiResponse<PlantResponseDTO> getPlant() {
-//        PlantResponseDTO plants = plantService.getPlant();
-//        return ApiResponse.onSuccess(plants);
-//    }
+    @GetMapping("/plants")
+    public ApiResponse<PlantListResponseDTO> getPlants() {
+        return ApiResponse.onSuccess(plantService.getPlants());
+    }
 
     //식물 상세 조회
     @GetMapping("/plants/{plantId}")

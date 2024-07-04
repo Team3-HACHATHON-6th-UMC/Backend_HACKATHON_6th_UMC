@@ -21,6 +21,9 @@ public enum ErrorStatus implements BaseCode {
     // 세션 에러
     SESSION_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "유효하지 않은 세션입니다."),
 
+    // 식물 이미지 관련
+    PLANT_IMAGE_NOT_FOUND(HttpStatus.NOT_FOUND, "NOT FOUND", "존재하지 않는 식물 이미지입니다."),
+
     // 반려식물 관련
     MY_PLANT_NOT_FOUND(HttpStatus.NOT_FOUND, "NOT FOUND", "존재하지 않는 반려식물입니다."),
 
