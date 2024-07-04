@@ -28,4 +28,8 @@ public class Diary extends BaseEntity {
     private User user;
 
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }

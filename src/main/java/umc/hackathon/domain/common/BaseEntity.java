@@ -20,6 +20,7 @@ public abstract class BaseEntity {
     private LocalDateTime createdAt;
 
     @LastModifiedDate
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime updatedAt;
 
 }
