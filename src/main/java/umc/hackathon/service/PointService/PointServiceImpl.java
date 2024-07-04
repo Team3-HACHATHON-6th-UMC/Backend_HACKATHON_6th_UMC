@@ -1,5 +1,6 @@
 package umc.hackathon.service.PointService;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import umc.hackathon.apiPayload.code.status.ErrorStatus;
@@ -15,6 +16,7 @@ public class PointServiceImpl implements PointService{
 
     private final MyPlantRepository myplantRepository;
 
+    @Transactional
     public UpdatePointResponseDTO updatePoint(Long myPlantId) {
 
         MyPlant myPlant = myplantRepository.findById(myPlantId)
