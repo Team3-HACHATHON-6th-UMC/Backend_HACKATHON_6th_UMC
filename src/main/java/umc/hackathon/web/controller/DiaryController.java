@@ -1,4 +1,4 @@
 package umc.hackathon.web.controller;
 
-public class userController {
+public class DiaryController {
 }
