@@ -7,33 +7,60 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.hackathon.apiPayload.code.status.ErrorStatus;
 import umc.hackathon.apiPayload.exception.GeneralException;
+import umc.hackathon.apiPayload.exception.handler.TempHandler;
 import umc.hackathon.domain.entity.MyPlant;
 import umc.hackathon.domain.entity.MyPlantImage;
+import umc.hackathon.domain.entity.Plant;
+import umc.hackathon.domain.entity.User;
 import umc.hackathon.repository.MyPlantImageRepository;
 import umc.hackathon.repository.MyPlantRepository;
+import umc.hackathon.repository.PlantRepository;
+import umc.hackathon.repository.UserRepository;
+import umc.hackathon.web.dto.MyPlant.CreateMyPlantRequestDTO;
 import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
 
 @Service
 @RequiredArgsConstructor
-
 @Component
-
 @Transactional
 @Slf4j
-public class MyPlantServiceImpl implements umc.hackathon.service.MyPlantService.MyPlantService {
+public class MyPlantServiceImpl implements MyPlantService {
 
 
     private final MyPlantRepository myPlantRepository;
     private final MyPlantImageRepository myPlantImageRepository;
+    private final PlantRepository plantRepository;
+    private final UserRepository userRepository;
 
-    /*
-    // 반려식물 생성 (nickname, imageUrl 만 추가하면 됨) imageUrl은 MyPlantImage에 있음.
+    // 반려식물 생성
     @Override
-    public MyplantRequestDTO.AddMyplantDTO addMyPlant() {
+    @Transactional
+    public void createMyPlant(Long plantId, Long userId, CreateMyPlantRequestDTO createMyPlantRequestDTO) {
+
+        Plant plant = plantRepository.findById(plantId)
+                .orElseThrow(() -> new TempHandler(ErrorStatus.PLANT_NOT_FOUND));
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new TempHandler(ErrorStatus.LOGIN_UNAUTHORIZED));
+
+        MyPlant myPlant = MyPlant.builder()
+                .plant(plant)
+                .user(user)
+                .name(createMyPlantRequestDTO.getName())
+                .total(0)
+                .status(0)
+                .build();
+
+        myPlantRepository.save(myPlant);
+
+        MyPlantImage myPlantImage = MyPlantImage.builder()
+                .myPlant(myPlant)
+                .imageUrl(createMyPlantRequestDTO.getImageUrl())
+                .build();
+
+        myPlantImageRepository.save(myPlantImage);
 
     }
-
-     */
 
     // 반려식물 정보조회(== 메인화면)
     @Override
