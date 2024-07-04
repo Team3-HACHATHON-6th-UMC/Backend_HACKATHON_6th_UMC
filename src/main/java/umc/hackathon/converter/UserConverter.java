@@ -18,6 +18,7 @@ public class UserConverter {
         return UserResponseDTO.CreateUserResultDTO.builder()
                 .userId(user.getId())
                 .name(user.getName())
+                .createdAt(user.getCreatedAt())
                 .build();
     }
 
