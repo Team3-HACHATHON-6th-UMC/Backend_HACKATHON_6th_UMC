@@ -16,7 +16,7 @@ public class Mission extends BaseEntity {
     private Integer point;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "myplant_id")
-    private Myplant myplant;
+    @JoinColumn(name = "myPlant_id")
+    private MyPlant myPlant;
 
 }
