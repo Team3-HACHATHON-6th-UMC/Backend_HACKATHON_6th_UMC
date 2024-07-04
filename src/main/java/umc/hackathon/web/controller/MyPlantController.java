@@ -4,18 +4,16 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import umc.hackathon.apiPayload.ApiResponse;
-import umc.hackathon.service.MyplantService.MyplantService;
-import umc.hackathon.web.dto.Myplant.MyplantRequestDTO;
-import umc.hackathon.web.dto.Myplant.MyplantResponseDTO;
-
-import java.util.List;
+import umc.hackathon.service.MyPlantService.MyPlantService;
+import umc.hackathon.web.dto.MyPlant.MyPlantRequestDTO;
+import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/myplants")
 public class MyPlantController {
 
-    private final MyplantService myplantService;
+    private final MyPlantService myPlantService;
 
     /*
     // 반려식물 생성
@@ -31,8 +29,8 @@ public class MyPlantController {
     // 반려식물 상세정보 조회(= 메인화면) (반려식물 1개만 할거라 반려식물 리스트 조회 안 하기로 함)
     @GetMapping("/{myPlantId}")
     @Operation(summary = "반려식물 조회 API", description = "반려식물 메인페이지입니다 :)")
-    public ApiResponse<MyplantResponseDTO.MyplantDTO> getMyplant(@PathVariable Long myPlantId) {
-        return ApiResponse.onSuccess(myplantService.getMyPlant(myPlantId));
+    public ApiResponse<MyPlantResponseDTO.MyPlantDTO> getMyPlant(@PathVariable Long myPlantId) {
+        return ApiResponse.onSuccess(myPlantService.getMyPlant(myPlantId));
     }
 
 
