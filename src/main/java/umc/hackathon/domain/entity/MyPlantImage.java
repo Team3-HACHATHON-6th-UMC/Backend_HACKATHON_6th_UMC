@@ -20,7 +20,7 @@ public class MyPlantImage extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 2048)
+    @Column(columnDefinition = "LONGTEXT")
     private String imageUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
