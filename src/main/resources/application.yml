@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://umc-6th-hackathon-db.c7aaoo2mc211.ap-northeast-2.rds.amazonaws.com:3306/UMC_6th_HACKATHON_Team3_DB
+    username: hackathonteam3
+    password: team3hackathon3333
     driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:

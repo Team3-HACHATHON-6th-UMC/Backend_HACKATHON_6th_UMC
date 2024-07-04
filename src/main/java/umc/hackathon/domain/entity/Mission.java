@@ -1,4 +1,4 @@
-package umc.hackathon.domain;
+package umc.hackathon.domain.entity;
 
 import jakarta.persistence.*;
 import umc.hackathon.domain.enums.MissionStatus;
