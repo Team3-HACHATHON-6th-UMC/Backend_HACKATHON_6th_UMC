@@ -34,7 +34,7 @@ public class DiaryController {
 
     // 일기 생성
     @PostMapping("/")
-    @Operation(summary = "일기 생성", description = "일기를 생성합니다."
+    @Operation(summary = "일기 생성", description = "일기를 생성합니다. endpoint에 /diary/userId=1 을 입력하세요"
     )
     public ApiResponse<DiaryResponseDTO.CreateDiaryResultDTO> diaryCreate(
             @RequestParam Long userId,
