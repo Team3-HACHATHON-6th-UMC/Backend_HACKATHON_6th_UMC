@@ -27,8 +27,7 @@ public class PlantController {
     //식물 상세 조회
     @GetMapping("/plants/{plantId}")
     public ApiResponse<PlantResponseDTO> getPlantDetails(@PathVariable Long plantId){
-        PlantResponseDTO plants = plantService.getPlantDetails(plantId);
-        return ApiResponse.onSuccess(plants);
+        return ApiResponse.onSuccess(plantService.getPlantDetails(plantId));
     }
 
 }
