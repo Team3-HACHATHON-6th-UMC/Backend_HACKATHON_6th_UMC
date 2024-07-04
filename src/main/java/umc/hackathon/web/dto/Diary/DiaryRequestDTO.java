@@ -16,5 +16,13 @@ public class DiaryRequestDTO {
         private String content;
     }
 
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class UpdateDiaryDTO {
+        private String title;
+        private String content;
+    }
 
 }

@@ -41,7 +41,22 @@ public class DiaryController {
         );
     }
 
-
+    // 일기 수정
+    @PatchMapping("/{diaryId}")
+    @Operation(
+            summary = "일기 수정 API"
+            , description = "일기를 수정합니다. Path variable로 diaryId를 입력 받고, RequestBody에 일기 제목 title과 수정할 일기 content를 입력하세요"
+    )
+    public ApiResponse<DiaryResponseDTO.UpdateDiaryResultDTO> updateProject(
+            @RequestParam Long userId,
+            @RequestBody DiaryRequestDTO.UpdateDiaryDTO request,
+            @PathVariable Long diaryId
+    ) {
+        return ApiResponse.onSuccess(DiaryConverter.UpdateDiaryResultDTO(
+                        diaryCommandService.updateDiary(userId, diaryId, request)
+                )
+        );
+    }
 
 
 }
