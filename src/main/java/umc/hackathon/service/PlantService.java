@@ -50,8 +50,9 @@ public class PlantService {
         Plant plant=plantRepository.findById(plantId).orElseThrow();
 
         PlantImage plantImage = plantImageRepository.findFirstByPlant_Id(plant.getId())
-                .orElseThrow(() -> new TempHandler(ErrorStatus.PLANT_IMAGE_NOT_FOUND));
+                .orElseThrow(() -> new TempHandler(ErrorStatus.MY_PLANT_NOT_FOUND));
 
+                //PLANT_IMAGE_NOT_FOUND
         PlantResponseDTO plantResponseDTO = PlantResponseDTO.builder()
                 .plantId(plant.getId())
                 .plantName(plant.getName())
