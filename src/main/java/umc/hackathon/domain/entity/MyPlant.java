@@ -13,7 +13,7 @@ import umc.hackathon.domain.common.BaseEntity;
 @DynamicInsert
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Myplant extends BaseEntity {
+public class MyPlant extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
