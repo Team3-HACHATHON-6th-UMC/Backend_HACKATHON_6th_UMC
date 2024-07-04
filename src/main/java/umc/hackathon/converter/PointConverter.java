@@ -1,7 +1,7 @@
 package umc.hackathon.converter;
 
 import umc.hackathon.domain.entity.MyPlant;
-import umc.hackathon.web.dto.MyPlant.Point.UpdatePointResponseDTO;
+import umc.hackathon.web.dto.MyPlant.UpdatePointResponseDTO;
 
 public class PointConverter {
 

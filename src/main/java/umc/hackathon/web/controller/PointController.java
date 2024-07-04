@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import umc.hackathon.apiPayload.ApiResponse;
 import umc.hackathon.service.PointService.PointServiceImpl;
-import umc.hackathon.web.dto.MyPlant.Point.UpdatePointResponseDTO;
+import umc.hackathon.web.dto.MyPlant.UpdatePointResponseDTO;
 
 @RestController
 @RequiredArgsConstructor
