@@ -1,14 +1,12 @@
 package umc.hackathon.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import umc.hackathon.domain.common.BaseEntity;
 
 @Entity
 public class MyplantImage extends BaseEntity {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String imageUrl;

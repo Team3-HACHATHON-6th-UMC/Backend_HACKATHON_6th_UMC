@@ -7,7 +7,7 @@ import umc.hackathon.domain.enums.MissionStatus;
 @Entity
 public class Mission extends BaseEntity {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)
