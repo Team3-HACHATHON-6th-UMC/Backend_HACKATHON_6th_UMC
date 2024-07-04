@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import umc.hackathon.domain.common.BaseEntity;
+import umc.hackathon.web.dto.Diary.DiaryRequestDTO;
 
 @Entity
 @Getter
@@ -30,6 +31,11 @@ public class Diary extends BaseEntity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void update(DiaryRequestDTO.UpdateDiaryDTO request) {
+        this.title = request.getTitle();
+        this.content = request.getContent();
     }
 
 }

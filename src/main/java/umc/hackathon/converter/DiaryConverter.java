@@ -21,4 +21,12 @@ public class DiaryConverter {
                 .createAt(diary.getCreatedAt())
                 .build();
     }
+
+    public static DiaryResponseDTO.UpdateDiaryResultDTO UpdateDiaryResultDTO(Diary diary) {
+        return DiaryResponseDTO.UpdateDiaryResultDTO.builder()
+                .diaryId(diary.getId())
+                .title(diary.getTitle())
+                .content(diary.getContent())
+                .build();
+    }
 }
