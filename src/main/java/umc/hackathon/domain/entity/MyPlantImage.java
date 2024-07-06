@@ -20,7 +20,7 @@ public class MyPlantImage extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String imageUrl;
+    private String imageUrl;    
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "myPlant_id")

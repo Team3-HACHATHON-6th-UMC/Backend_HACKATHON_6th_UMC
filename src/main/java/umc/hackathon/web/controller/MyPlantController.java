@@ -4,9 +4,17 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import umc.hackathon.apiPayload.ApiResponse;
+import umc.hackathon.converter.DiaryConverter;
+import umc.hackathon.converter.MyPlantConverter;
+import umc.hackathon.domain.entity.Diary;
+import umc.hackathon.domain.entity.MyPlant;
+import umc.hackathon.repository.MyPlantImageRepository;
 import umc.hackathon.service.MyPlantService.MyPlantService;
+import umc.hackathon.web.dto.Diary.DiaryResponseDTO;
 import umc.hackathon.web.dto.MyPlant.CreateMyPlantRequestDTO;
 import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,6 +22,7 @@ import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
 public class MyPlantController {
 
     private final MyPlantService myPlantService;
+    private final MyPlantImageRepository myPlantImageRepository;
 
     // 반려식물 생성
     @PostMapping
@@ -50,5 +59,35 @@ public class MyPlantController {
 
 
 
+    // 반려 식물 리스트 조회
+    // Controller method
+//    @GetMapping("/myplantlist/{userId}")
+//    @Operation(
+//            summary = "유저의 반려 식물 조회 API",
+//            description = "유저의 반려 식물을 조회할 수 있습니다."
+//    )
+//    public ApiResponse<MyPlantResponseDTO.UserMyPlantResultListDTO> findUserMyPlant(
+//            @PathVariable Long userId
+//    ) {
+//        List<MyPlant> userMyPlantList = myPlantService.getUserMyPlant(userId);
+//        return ApiResponse.onSuccess(
+//                MyPlantConverter.toUserMyPlantResultListDTO(userMyPlantList)
+//        );
+//    }
+
+//    @GetMapping("/myplantlist/{userId}")
+//    @Operation(
+//            summary = "유저의 반려 식물 조회 API",
+//            description = "유저의 반려 식물을 조회할 수 있습니다."
+//    )
+//    public ApiResponse<MyPlantResponseDTO.UserMyPlantResultListDTO> findUserMyPlant(
+//            @PathVariable Long userId
+//    ) {
+//        List<MyPlant> userMyPlantList = myPlantService.getUserMyPlant(userId);
+//        //MyPlantConverter converter = new MyPlantConverter;
+//        return ApiResponse.onSuccess(
+//                MyPlantConverter.toUserMyPlantResultListDTO(userMyPlantList)
+//        );
+//    }
 
 }

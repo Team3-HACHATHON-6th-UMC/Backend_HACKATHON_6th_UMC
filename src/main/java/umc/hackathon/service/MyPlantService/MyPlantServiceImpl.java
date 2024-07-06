@@ -8,16 +8,15 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.hackathon.apiPayload.code.status.ErrorStatus;
 import umc.hackathon.apiPayload.exception.GeneralException;
 import umc.hackathon.apiPayload.exception.handler.TempHandler;
-import umc.hackathon.domain.entity.MyPlant;
-import umc.hackathon.domain.entity.MyPlantImage;
-import umc.hackathon.domain.entity.Plant;
-import umc.hackathon.domain.entity.User;
+import umc.hackathon.domain.entity.*;
 import umc.hackathon.repository.MyPlantImageRepository;
 import umc.hackathon.repository.MyPlantRepository;
 import umc.hackathon.repository.PlantRepository;
 import umc.hackathon.repository.UserRepository;
 import umc.hackathon.web.dto.MyPlant.CreateMyPlantRequestDTO;
 import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -92,6 +91,14 @@ public class MyPlantServiceImpl implements MyPlantService {
 
         myPlantRepository.delete(myPlant);
 
+    }
+
+    @Override
+    public List<MyPlant> getUserMyPlant(Long userId) {
+        User getUser = userRepository.findById(userId).get();
+        List<MyPlant> UserMyPlantList = myPlantRepository.findAllByUser(getUser);
+
+        return UserMyPlantList;
     }
 
 }

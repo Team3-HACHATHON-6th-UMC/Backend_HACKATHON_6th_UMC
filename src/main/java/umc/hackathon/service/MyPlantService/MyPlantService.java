@@ -1,7 +1,11 @@
 package umc.hackathon.service.MyPlantService;
 
+import umc.hackathon.domain.entity.Diary;
+import umc.hackathon.domain.entity.MyPlant;
 import umc.hackathon.web.dto.MyPlant.CreateMyPlantRequestDTO;
 import umc.hackathon.web.dto.MyPlant.MyPlantResponseDTO;
+
+import java.util.List;
 
 public interface MyPlantService {
 
@@ -13,4 +17,6 @@ public interface MyPlantService {
 
     // 반려식물 삭제
     void deleteMyPlant(Long myPlantId);
+
+    List<MyPlant> getUserMyPlant(Long userId);
 }

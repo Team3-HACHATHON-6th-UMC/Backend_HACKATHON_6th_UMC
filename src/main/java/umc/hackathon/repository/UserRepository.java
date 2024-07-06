@@ -7,6 +7,5 @@ import umc.hackathon.domain.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUserName(String userName);
-
     boolean existsByUserName(String userName);
 }
